@@ -1,0 +1,65 @@
+﻿<Window x:Class="individual.Views.CustomMessageBox"
+        x:Name="MessageBoxWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:individual.Views"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Topmost="True"
+        ShowInTaskbar="False"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        FontFamily="/fonts/Bellefair-Regular.ttf #Bellefair"
+        Title="CustomMessageBox" Height="200" Width="400">
+    <Window.Resources>
+        <ControlTemplate x:Key="LowerButtons" TargetType="Button">
+            <Grid Height="50" Width="150">
+                <Border x:Name="LowerBorder" CornerRadius="10" BorderThickness="2" Background="#D81E5B">
+                    <Border.BorderBrush>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                            <GradientStop Color="#C6D8D3" Offset="0.0"/>
+                            <GradientStop Color="#FDF0D5" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                    <TextBlock Text="{TemplateBinding Property=Content}" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="#FDF0D5"/>
+                </Border>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="LowerBorder" Property="BorderBrush">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                                <GradientStop Color="#FDF0D5" Offset="0.0"/>
+                                <GradientStop Color="#C6D8D3" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter TargetName="LowerBorder" Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush Color="#F0544F"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <Border CornerRadius="10" BorderThickness="3" BorderBrush="#C6D8D3">
+        <Border.Background>
+            <SolidColorBrush Color="#3A3335" Opacity="0.9"/>
+        </Border.Background>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="{Binding ElementName=MessageBoxWindow, Path=Message, UpdateSourceTrigger=PropertyChanged}" FontSize="20" Foreground="#C6D8D3"
+               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Button Grid.Row="1" Template="{StaticResource LowerButtons}" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Close_Clicked"/>
+        </Grid>
+    </Border>
+</Window>

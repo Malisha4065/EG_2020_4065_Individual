@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Alert\**" />
+    <EmbeddedResource Remove="Alert\**" />
+    <None Remove="Alert\**" />
+    <Page Remove="Alert\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\Bellefair-Regular.ttf" />
+    <None Remove="Icons\1.png" />
+    <None Remove="Icons\2.png" />
+    <None Remove="Icons\3.png" />
+    <None Remove="Icons\4.png" />
+    <None Remove="Icons\college.png" />
+    <None Remove="Icons\default.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Bellefair-Regular.ttf" />
+    <Resource Include="Icons\1.png" />
+    <Resource Include="Icons\2.png" />
+    <Resource Include="Icons\3.png" />
+    <Resource Include="Icons\4.png" />
+    <Resource Include="Icons\college.png" />
+    <Resource Include="Icons\default.png" />
+  </ItemGroup>
+
+</Project>

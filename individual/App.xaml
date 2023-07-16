@@ -1,0 +1,23 @@
+﻿<Application x:Class="individual.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:individual"
+             xmlns:views="clr-namespace:individual.Views"
+             xmlns:viewModels="clr-namespace:individual.ViewModels"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <DataTemplate DataType="{x:Type local:MainWindowVM}">
+                <local:MainWindow/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:AddStudentVM}">
+                <views:AddStudent/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:EditStudentVM}">
+                <views:EditStudent/>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
